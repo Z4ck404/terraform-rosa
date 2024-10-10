@@ -65,7 +65,7 @@ data "aws_ami" "rhel9" {
   count = var.private ? 1 : 0
 
   executable_users = ["self"]
-  owners           = ["309956199498"]
+  owners           = ["679593333241"]
   most_recent      = true
 
   filter {
