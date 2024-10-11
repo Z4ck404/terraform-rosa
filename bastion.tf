@@ -127,7 +127,7 @@ resource "aws_security_group" "bastion_host" {
 resource "aws_instance" "bastion_host" {
   count = var.private ? 1 : 0
 
-  ami                         = data.aws_ami.rhel9[0].id
+  ami                         = var.bastion_ami_id != null ? var.bastion_ami_id : data.aws_ami.rhel9[0].id
   instance_type               = "t2.micro"
   iam_instance_profile        = aws_iam_instance_profile.bastion_iam_profile[0].name
   subnet_id                   = local.bastion_subnet
